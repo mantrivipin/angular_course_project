@@ -29,7 +29,7 @@ export class RecipeEditComponent implements OnInit {
 
   onSubmit() {
     console.log(this.recipeForm);
-    if(this.editMode) {
+    if (this.editMode) {
       let idHash = {id: this.id}
       this.recipeService.updateRecipe(this.id, Object.assign(this.recipeForm.value, idHash));
     } else {
@@ -60,12 +60,12 @@ export class RecipeEditComponent implements OnInit {
     let recipeDescription: string = '';
     let recipeImagePath: string = '';
     let recipeIngredients = new FormArray([]);
-    if(this.editMode) {
+    if (this.editMode) {
       this.recipe = this.recipeService.getRecipe(this.id); 
       recipeName = this.recipe.name;
       recipeDescription = this.recipe.description;
       recipeImagePath = this.recipe.imagePath;
-      if(this.recipe.ingredients) {
+      if (this.recipe.ingredients) {
         for(let ingredient of this.recipe.ingredients) {
           recipeIngredients.push(
             new FormGroup({
